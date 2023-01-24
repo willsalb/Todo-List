@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Task;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Inserindo(3) dados no banco utilizando o Factory model.
+        // Task::factory(3)->create();
+
+        DB::table('users')->insert([
+            'name' => 'willams',
+            'email' => 'will123@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
